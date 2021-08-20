@@ -9,6 +9,7 @@ function App() {
  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+ const [selectedCard, setSelectedCard] = React.useState({});
 
 
  function handleEditAvatarClick() {
@@ -31,7 +32,13 @@ function App() {
   setIsEditAvatarPopupOpen(false);
   setIsEditProfilePopupOpen(false);
   setIsAddPlacePopupOpen(false);
+  setSelectedCard({});
  }
+
+ function handleCardClick (card) {
+  setSelectedCard(card);
+ }
+
 
  return (
   <div>
@@ -42,6 +49,7 @@ function App() {
       onEditProfile={handleEditProfileClick}
       onAddPlace={handleAddPlaceClick}
       onEditAvatar={handleEditAvatarClick}
+      onCardClick={handleCardClick}
      />
      <Footer/>
     </div>
@@ -105,25 +113,7 @@ function App() {
     <button className="popup__button" type="submit" value="Да">Да</button>
    </PopupWithForm>
 
-
-   <ImagePopup/>
-
-
-   <template id="elements-template">
-    <div className="element">
-     <button className="profile__delete" type="button"></button>
-     <div className="element__img-block">
-      <img alt="" className="element__img" src="#"/>
-     </div>
-     <div className="element__card">
-      <h2 className="element__text"></h2>
-      <div className="element__group">
-       <button className="element__button" type="button"></button>
-       <span className="element__count-likes">0</span>
-      </div>
-     </div>
-    </div>
-   </template>
+   <ImagePopup card={selectedCard} onClose={closeAllPopups} isOpen={Object.keys(selectedCard).length !== 0} />
 
   </div>
  );
