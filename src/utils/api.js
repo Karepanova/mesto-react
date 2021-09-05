@@ -83,6 +83,15 @@ class Api {
    .then(this._checkResponse)
  }
 
+ //8.3 проверка лайков
+ changeLikeCardStatus(cardId, isLiked) {
+  if (isLiked) {
+   return this.likeCard(cardId);
+  } else {
+   return this.delLikeCard(cardId);
+  }
+
+ }
 
  //9. Обновление аватара пользователя (PATCH)
  editAvatar(data) {

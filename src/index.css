@@ -15,6 +15,7 @@
 @import url(./blocks/profile/__add-button/profile__add-button.css);
 @import url(./blocks/profile/__record/profile__record.css);
 @import url(./blocks/profile/__delete/profile__delete.css);
+@import url(./blocks/profile/__delete/_hidden/profile__delete_hidden.css);
 @import url(./blocks/elements/elements.css);
 @import url(./blocks/element/element.css);
 @import url(./blocks/element/__text/element__text.css);
